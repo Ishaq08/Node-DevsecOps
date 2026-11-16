@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: mishaq11/node-fullstack-app:1
+          image: mishaq11/node-fullstack-app:11
           ports:
             - containerPort: 3000
           env:
