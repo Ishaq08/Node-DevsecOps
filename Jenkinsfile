@@ -40,5 +40,19 @@ pipeline {
         }
       }
     }
+    stage('Update Deployment File') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'github',
+                         usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+          sh '''
+            git config user.email "jenkins@local"
+            git config user.name "jenkins"
+            sed -i "s|image: .*node-fullstack-app:.*|image: $IMAGE:$BUILD_NUMBER|" k8s/deployment.yaml
+            git add k8s/deployment.yaml
+            git commit -m "update image to $BUILD_NUMBER" || echo "nothing to commit"
+            git push https://$GIT_USER:$GIT_TOKEN@github.com/Ishaq08/Node-DevsecOps.git HEAD:main
+          '''
+        }
+      }
   }
 }
