@@ -2,7 +2,7 @@
 
 A hands-on DevSecOps project. A full-stack **Task Board** app (HTML/CSS/JS frontend, Node.js + Express backend, MongoDB database) is built, tested, security-scanned and containerised by **Jenkins**, then deployed to **Amazon EKS** with **GitOps (ArgoCD)**. All AWS infrastructure is created with **Terraform**.
 
-![Architecture](docs/architecture.png)
+![Architecture](docs/screenshots/architecture.png)
 
 ## Table of contents
 1. [Tech stack](#tech-stack)
